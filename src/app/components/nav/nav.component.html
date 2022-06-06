@@ -2,7 +2,7 @@
   <mat-drawer #drawer class="sidenav" mode="side">
     <img src="assets/img/side-image.svg" alt="side-iamge">
     <mat-nav-list class="nav-list">
-      <a mat-list-item routerLink="/">
+      <a mat-list-item routerLink="home">
         <mat-icon>home</mat-icon>
         <span>Home</span>
       </a>
@@ -14,7 +14,7 @@
         <mat-icon>person</mat-icon>
         <span>Clientes</span>
       </a>
-      <a mat-list-item routerLink="/">
+      <a mat-list-item href="https://github.com/FernandesJr/hekp-desk-front" target="_blank">
         <mat-icon>code</mat-icon>
         <span>GitHub</span>
       </a>
@@ -26,8 +26,11 @@
   </mat-drawer>
 
   <div class="sidenav-content">
+    <app-header></app-header>
     <button class="menu mat-elevation-z8" mat-mini-fab (click)="drawer.toggle()">
       <mat-icon>menu</mat-icon>
     </button>
+    <!--Todo o conteúdo da página é direcionado a uma rota filha-->
+    <router-outlet></router-outlet>
   </div>
 </mat-drawer-container>
