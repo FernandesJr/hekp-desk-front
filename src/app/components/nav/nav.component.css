@@ -24,9 +24,11 @@ img {
 }
 
 .menu {
+    display: flex;
     color: white;
     background: rgb(2,0,36);
     background: linear-gradient(165deg, rgba(2,0,36,1) 0%, rgba(16,94,149,1) 0%, rgba(0,212,255,1) 100%);
-
-    margin: .4rem 0 0 .4rem;
+    margin: .4rem 0 .5rem .4rem;
+    top: -65px;
+    justify-content: center;
 }
