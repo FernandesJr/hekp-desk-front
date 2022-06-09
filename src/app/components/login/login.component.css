@@ -4,6 +4,7 @@
     align-items: center;
     justify-content: center;
     background: linear-gradient(165deg, rgba(2,0,36,1) 0%, rgba(16,94,149,1) 0%, rgba(0,212,255,1) 100%);
+    padding: 0 10px 0 10px;
 }
 
 .form {
