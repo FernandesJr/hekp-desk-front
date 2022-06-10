@@ -1,4 +1,4 @@
-import { TecnicoService } from './../../../service/tecnico.service';
+import { TecnicoService } from '../../../services/tecnico.service';
 import { Tecnico } from './../../../models/Tecnico';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
