@@ -11,33 +11,63 @@
     <!--Inputs-->
     <mat-form-field class="fullWidth" appearance="legacy">
       <mat-label>Nome</mat-label>
-      <input matInput placeholder="Ex.. José do egito" />
+      <input
+        required 
+        [formControl]="nome" 
+        matInput
+        placeholder="Ex.. José do egito"
+      />
       <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
     </mat-form-field>
 
     <mat-form-field class="fullWidth" appearance="legacy">
       <mat-label>CPF</mat-label>
-      <input matInput placeholder="Ex.. 000.000.000-00" />
+      <input
+        required 
+        [formControl]="cpf"
+        matInput
+        placeholder="Ex.. 000.000.000-00"
+      />
       <mat-icon matSuffix>pin</mat-icon>
     </mat-form-field>
 
     <mat-form-field class="fullWidth" appearance="legacy">
       <mat-label>Email</mat-label>
-      <input matInput placeholder="Ex.. jose@email.com" />
+      <input
+        required 
+        [formControl]="email"
+        matInput
+        placeholder="Ex.. jose@email.com"
+      />
       <mat-icon matSuffix>email</mat-icon>
     </mat-form-field>
 
     <mat-form-field class="fullWidth" appearance="legacy">
       <mat-label>Senha</mat-label>
-      <input type="password" matInput placeholder="Ex.. 1234" />
+      <input 
+        required 
+        [formControl]="senha"
+        type="password" 
+        matInput 
+        placeholder="Ex.. 1234" />
       <mat-icon matSuffix>password</mat-icon>
     </mat-form-field>
 
     <!--botões-->
-    <button class="fullWidth mat-elevation-z4" mat-raised-button color="primary">
-        Salvar
+    <button
+      class="fullWidth mat-elevation-z4"
+      mat-raised-button
+      color="primary" 
+      [disabled]="!validar()">
+      Salvar
     </button>
-    <button class="fullWidth mat-elevation-z4" mat-raised-button>Cancelar</button>
+    <button
+      class="fullWidth mat-elevation-z4"
+      mat-raised-button
+      routerLink="../"
+    >
+      Cancelar
+    </button>
   </form>
   <p>By Gilberto Fernandes</p>
 </div>

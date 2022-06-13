@@ -71,8 +71,7 @@ import { TecnicoCreateComponent } from './components/tecnico/tecnico-create/tecn
       timeOut: 4000,
       closeButton: true,
       progressBar: true
-    }
-    ),
+    })
   ],
   providers: [AuthInterceptorProvider], //Captura as requisições para adcionar o token
   bootstrap: [AppComponent]
