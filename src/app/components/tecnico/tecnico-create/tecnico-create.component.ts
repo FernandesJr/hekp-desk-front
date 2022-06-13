@@ -1,4 +1,4 @@
-import { FormControl, Validators } from '@angular/forms';
+import { FormControl, Validators } from '@angular/forms'
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -12,7 +12,8 @@ export class TecnicoCreateComponent implements OnInit {
   cpf = new FormControl(null, Validators.required);
   email = new FormControl(null, Validators.email);
   senha = new FormControl(null, Validators.minLength(3));
-  
+  //senha2 = new UntypedFormControl(null, Validators.minLength(3));
+
   constructor() { }
 
   ngOnInit(): void {

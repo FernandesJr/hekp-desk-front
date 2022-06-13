@@ -33,7 +33,7 @@
           "skipTests": true
         },
         "@schematics/angular:application": {
-          "strict": true
+          "strict": false
         }
       },
       "root": "",
@@ -113,5 +113,7 @@
       }
     }
   },
-  "defaultProject": "helpdesk"
+  "cli": {
+    "analytics": false
+  }
 }
