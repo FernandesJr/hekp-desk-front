@@ -1,4 +1,4 @@
-import { Router } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { Tecnico } from './../../../models/Tecnico';
 import { TecnicoService } from './../../../services/tecnico.service';
 import { FormControl, Validators } from '@angular/forms'
@@ -6,11 +6,11 @@ import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
 
 @Component({
-  selector: 'app-tecnico-create',
-  templateUrl: './tecnico-create.component.html',
-  styleUrls: ['./tecnico-create.component.css']
+  selector: 'app-tecnico-update',
+  templateUrl: './tecnico-update.component.html',
+  styleUrls: ['./tecnico-update.component.css']
 })
-export class TecnicoCreateComponent implements OnInit {
+export class TecnicoUpdateComponent implements OnInit {
 
   nome = new FormControl(null, Validators.minLength(3));
   cpf = new FormControl(null, Validators.required);
@@ -19,6 +19,7 @@ export class TecnicoCreateComponent implements OnInit {
   //senha2 = new UntypedFormControl(null, Validators.minLength(3));
 
   tecnico: Tecnico = {
+    id: '',
     nome: '',
     cpf: '',
     email:  '',
@@ -29,24 +30,32 @@ export class TecnicoCreateComponent implements OnInit {
   constructor(
     private service: TecnicoService,
     private toastr: ToastrService, 
-    private router: Router
+    private router: Router,
+    private route: ActivatedRoute
   ) { }
 
   ngOnInit(): void {
+    this.findById(this.route.snapshot.paramMap.get("id"));
   }
 
-  create() {
-    this.service.create(this.tecnico).subscribe(() => {
-      this.toastr.success("Usuário cadastrado com sucesso.", "Cadastro");
+  findById(id: any) {
+    this.service.findById(id).subscribe(resposta => {
+      this.tecnico.perfis = [];
+      this.tecnico = resposta;
+    })
+  }
+
+  update() {
+    this.service.update(this.tecnico).subscribe(() => {
+      this.toastr.success("Usuário atualizado com sucesso.", "Update");
       this.router.navigate(["tecnicos"]);
     }, ex => {
       if(ex.error.error) {
         this.toastr.error(ex.error.message);
-        console.log(ex.error.message);
       }else {
         this.toastr.error(ex.error.errors[0].message);
-        console.log(ex.error.message);
       }
+      console.log(ex);
     });
   }
 
