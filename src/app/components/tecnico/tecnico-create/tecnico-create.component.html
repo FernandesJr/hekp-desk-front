@@ -3,15 +3,23 @@
     <h1 class="fullWidth">Adicionar novo técnico</h1>
     <img class="fullWidth" src="assets\img\tecnico-create.svg" alt="create" />
     <section class="section">
-      <mat-checkbox class="margin" color="primary">Adimin</mat-checkbox>
-      <mat-checkbox class="margin" color="primary">Técnico</mat-checkbox>
-      <mat-checkbox class="margin" color="primary">Cliente</mat-checkbox>
+      <mat-checkbox (change)="addPerfil(0)" class="margin" color="primary">
+        Adimin
+      </mat-checkbox>
+      <mat-checkbox (change)="addPerfil(2)" class="margin" color="primary">
+        Técnico
+      </mat-checkbox>
+      <mat-checkbox (change)="addPerfil(1)" class="margin" color="primary">
+        Cliente
+      </mat-checkbox>
     </section>
 
     <!--Inputs-->
     <mat-form-field class="fullWidth" appearance="legacy">
       <mat-label>Nome</mat-label>
       <input
+        [(ngModel)]="tecnico.nome"
+        name="nome"
         required
         [formControl]="nome"
         maxlength="50"
@@ -24,6 +32,8 @@
     <mat-form-field class="fullWidth" appearance="legacy">
       <mat-label>CPF</mat-label>
       <input
+        [(ngModel)]="tecnico.cpf"
+        name="cpf"
         required
         [formControl]="cpf"
         mask="000.000.000-00"
@@ -36,6 +46,8 @@
     <mat-form-field class="fullWidth" appearance="legacy">
       <mat-label>Email</mat-label>
       <input
+        [(ngModel)]="tecnico.email"
+        name="email"
         required
         [formControl]="email"
         matInput
@@ -47,6 +59,8 @@
     <mat-form-field class="fullWidth" appearance="legacy">
       <mat-label>Senha</mat-label>
       <input
+        [(ngModel)]="tecnico.senha"
+        name="senha"
         required
         [formControl]="senha"
         maxlength="50"
@@ -63,7 +77,7 @@
       mat-raised-button
       color="primary"
       [disabled]="!validar()"
-    >
+      (click)="create()">
       Salvar
     </button>
     <button
