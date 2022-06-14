@@ -15,3 +15,12 @@ button {
 table {
     width: 100%;
 }
+
+.edit {
+    color: rgb(23, 131, 161);
+    margin-right: .5rem;
+}
+
+.delete {
+    color: rgb(195, 40, 26);
+}
