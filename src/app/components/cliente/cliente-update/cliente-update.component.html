@@ -1,0 +1,91 @@
+<div class="container">
+    <form class="form fullWidth mat-elevation-z8">
+      <h1 class="fullWidth">Atualizar técnico</h1>
+      <img class="fullWidth" src="assets\img\tecnico-create.svg" alt="create" />
+      <section class="section">
+        <mat-checkbox (change)="addPerfil(0)" class="margin" color="primary">
+          Adimin
+        </mat-checkbox>
+        <mat-checkbox (change)="addPerfil(2)" class="margin" color="primary">
+          Técnico
+        </mat-checkbox>
+        <mat-checkbox (change)="addPerfil(1)" [checked]="true" class="margin" color="primary">
+          Cliente
+        </mat-checkbox>
+      </section>
+  
+      <!--Inputs-->
+      <mat-form-field class="fullWidth" appearance="legacy">
+        <mat-label>Nome</mat-label>
+        <input
+          [(ngModel)]="cliente.nome"
+          name="nome"
+          required
+          [formControl]="nome"
+          maxlength="50"
+          matInput
+          placeholder="Ex.. José do egito"
+        />
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+      </mat-form-field>
+  
+      <mat-form-field class="fullWidth" appearance="legacy">
+        <mat-label>CPF</mat-label>
+        <input
+          [(ngModel)]="cliente.cpf"
+          name="cpf"
+          required
+          [formControl]="cpf"
+          mask="000.000.000-00"
+          matInput
+          placeholder="Ex.. 000.000.000-00"
+        />
+        <mat-icon matSuffix>pin</mat-icon>
+      </mat-form-field>
+  
+      <mat-form-field class="fullWidth" appearance="legacy">
+        <mat-label>Email</mat-label>
+        <input
+          [(ngModel)]="cliente.email"
+          name="email"
+          required
+          [formControl]="email"
+          matInput
+          placeholder="Ex.. jose@email.com"
+        />
+        <mat-icon matSuffix>email</mat-icon>
+      </mat-form-field>
+  
+      <mat-form-field class="fullWidth" appearance="legacy">
+        <mat-label>Senha</mat-label>
+        <input
+          [(ngModel)]="cliente.senha"
+          name="senha"
+          required
+          [formControl]="senha"
+          maxlength="70"
+          type="password"
+          matInput
+          placeholder="Ex.. 1234"
+        />
+        <mat-icon matSuffix>password</mat-icon>
+      </mat-form-field>
+  
+      <!--botões-->
+      <button
+        class="fullWidth mat-elevation-z4"
+        mat-raised-button
+        color="primary"
+        [disabled]="!validar()"
+        (click)="update()">
+        Atualizar
+      </button>
+      <button
+        class="fullWidth mat-elevation-z4"
+        mat-raised-button
+        routerLink="../../">
+        Cancelar
+      </button>
+    </form>
+    <p>By Gilberto Fernandes</p>
+  </div>
