@@ -23,7 +23,8 @@ export class TecnicoCreateComponent implements OnInit {
     cpf: '',
     email:  '',
     senha: '',
-    perfis: []
+    perfis: [],
+    dataCriacao: ''
   }
 
   constructor(

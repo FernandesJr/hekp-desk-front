@@ -24,7 +24,8 @@ export class TecnicoUpdateComponent implements OnInit {
     cpf: '',
     email:  '',
     senha: '',
-    perfis: []
+    perfis: [],
+    dataCriacao: ''
   }
 
   constructor(
@@ -40,12 +41,15 @@ export class TecnicoUpdateComponent implements OnInit {
 
   findById(id: any) {
     this.service.findById(id).subscribe(resposta => {
-      this.tecnico.perfis = [];
       this.tecnico = resposta;
-    })
+      this.tecnico.perfis = [];
+      this.tecnico.dataCriacao = null;
+      console.log(this.tecnico);
+    });
   }
 
   update() {
+    console.log(this.tecnico)
     this.service.update(this.tecnico).subscribe(() => {
       this.toastr.success("Usuário atualizado com sucesso.", "Update");
       this.router.navigate(["tecnicos"]);

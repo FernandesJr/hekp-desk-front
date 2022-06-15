@@ -11,8 +11,8 @@ export class TecnicoService {
 
   constructor(private http: HttpClient) { }
 
-  update(tecnico: Tecnico) : Observable<Tecnico>{
-    return this.http.put<Tecnico>(`${API_CONFIG.baseUrl}/tecnicos/${tecnico.id}`, tecnico);
+  update(tecnico: Tecnico) : Observable<any> {
+    return this.http.put(`${API_CONFIG.baseUrl}/tecnicos/${tecnico.id}`, tecnico);
   }
 
   findById(id: any): Observable<Tecnico>{

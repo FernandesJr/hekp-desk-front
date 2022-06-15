@@ -5,4 +5,5 @@ export interface Tecnico {
     nome : string;
     cpf: string;
     perfis : string[];
+    dataCriacao: string;
 }
