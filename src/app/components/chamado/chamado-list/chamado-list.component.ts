@@ -1,6 +1,8 @@
+import { ChamadoService } from './../../../services/chamado.service';
 import { Chamado } from './../../../models/chamado';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
 
 @Component({
   selector: 'app-chamado-list',
@@ -9,34 +11,61 @@ import { MatPaginator } from '@angular/material/paginator';
 })
 export class ChamadoListComponent implements OnInit {
 
-  ELEMENT_DATA: Chamado[] = [
-    {
-      id: 1,
-      titulo: "primeiro chamado",
-      dataAbertura: "16/06/2022 10:00:00",
-      dataFechamento: "16/06/2022 11:38:15",
-      cliente: 4,
-      tecnico: 11,
-      nomeCliente: "Tereza de Jesus",
-      nomeTecnico: "Fernandes Jr.",
-      prioridade: "alta",
-      status: "fechado",
-      observacoes: ""
-    }
-  ];
+  ELEMENT_DATA: Chamado[] = [];
+  FILTERED_DATA: Chamado[] = [];
   displayedColumns: string[] = ['id', 'titulo', 'nomeCliente', 'nomeTecnico', 'dataAbertura', 'dataFechamento', 'prioridade', 'status', 'acoes'];
   dataSource: any;
 
   @ViewChild(MatPaginator) paginator: MatPaginator;
 
-  constructor() { }
+  constructor(private service: ChamadoService) { }
 
   ngOnInit(): void {
+    this.findAll();
   }
 
   applyFilter(event: Event) {
     const filterValue = (event.target as HTMLInputElement).value;
     this.dataSource.filter = filterValue.trim().toLowerCase();
+  }
+
+  findAll(): void {
+    this.service.findAll().subscribe(response => {
+     this.ELEMENT_DATA = response;
+     this.dataSource = new MatTableDataSource<Chamado>(this.ELEMENT_DATA);
+     this.dataSource.paginator = this.paginator;
+    });
+  }
+
+  prioridadeDesc(cod: any): string {
+    if(cod == "0"){
+      return "BAIXA";
+    } else if(cod == "1"){
+      return "MÉDIA";
+    } else {
+      return "ALTA";
+    }
+  }
+
+  statusDesc(cod: any): string {
+    if(cod == "0"){
+      return "ABERTO";
+    } else if(cod == "1"){
+      return "EM ANDAMENTO";
+    } else {
+      return "FECHADO";
+    }
+  }
+
+  orderByStatus(cod: any): void {
+    this.FILTERED_DATA = [];
+    this.ELEMENT_DATA.forEach(e => {
+      if(e.status == cod){
+        this.FILTERED_DATA.push(e);
+      }
+    });
+    this.dataSource = new MatTableDataSource<Chamado>(this.FILTERED_DATA);
+    this.dataSource.paginator = this.paginator;
   }
 
 }
