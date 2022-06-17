@@ -4,13 +4,16 @@
 
     <mat-form-field class="full-width" appearance="outline">
         <mat-label>Título</mat-label>
-        <input matInput placeholder="Ex. Manutenção no notebook">
+        <input 
+            [formControl]="titulo" 
+            required 
+            matInput placeholder="Ex. Manutenção no notebook">
     </mat-form-field>
 
     <div class="select">
         <mat-form-field appearance="outline">
             <mat-label>Prioridade</mat-label>
-            <mat-select>
+            <mat-select [formControl]="prioridade" required>
               <mat-option value="0">BAIXA</mat-option>
               <mat-option value="1">MÉDIA</mat-option>
               <mat-option value="2">ALTA</mat-option>
@@ -18,7 +21,7 @@
         </mat-form-field>
         <mat-form-field appearance="outline">
             <mat-label>Status</mat-label>
-            <mat-select>
+            <mat-select [formControl]="status" required>
               <mat-option value="0">ABERTO</mat-option>
               <mat-option value="1">EM ANDAMENTO</mat-option>
               <mat-option value="2">FECHADO</mat-option>
@@ -28,26 +31,26 @@
 
     <mat-form-field class="full-width" appearance="outline">
         <mat-label>Técnico</mat-label>
-        <mat-select>
+        <mat-select [formControl]="tecnico" required>
           <mat-option value="0">Gilberto Fernandes</mat-option>
         </mat-select>
     </mat-form-field>
 
     <mat-form-field class="full-width" appearance="outline">
         <mat-label>Cliente</mat-label>
-        <mat-select>
+        <mat-select [formControl]="cliente" required>
           <mat-option value="0">Geovanna Samara</mat-option>
         </mat-select>
     </mat-form-field>
 
     <mat-form-field class="full-width" appearance="outline">
         <mat-label>Descrição</mat-label>
-        <textarea matInput></textarea>
+        <textarea matInput [formControl]="descricao" required maxlength="255"></textarea>
     </mat-form-field>
 
-    <button class="full-width mat-elevation-z4" mat-raised-button color="primary">Salvar</button>
+    <button class="full-width mat-elevation-z4" mat-raised-button color="primary" [disabled]="!validaCampo()">Salvar</button>
     <button class="full-width" mat-raised-button>Cancelar</button>
-    
+
     <p class="full-width">By Gilberto Fernandes</p>
     
 </div>
