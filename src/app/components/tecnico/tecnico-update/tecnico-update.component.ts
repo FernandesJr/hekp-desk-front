@@ -1,5 +1,5 @@
 import { ActivatedRoute, Router } from '@angular/router';
-import { Tecnico } from './../../../models/Tecnico';
+import { Tecnico } from './../../../models/tecnico';
 import { TecnicoService } from './../../../services/tecnico.service';
 import { FormControl, Validators } from '@angular/forms'
 import { Component, OnInit } from '@angular/core';
