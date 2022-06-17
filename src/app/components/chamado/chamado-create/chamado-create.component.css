@@ -1,0 +1,42 @@
+.container {
+    width: 50%;
+    margin: auto auto 1rem auto;
+    padding: 1rem;
+    border-radius: 1rem;
+}
+
+.full-width {
+    width: 100%;
+}
+
+h1, img , p{
+    text-align: center;
+}
+
+img {
+    height: 15rem;
+    margin: auto;
+}
+
+.select {
+    display: flex;
+    justify-content: space-between;
+}
+
+.select mat-form-field {
+    width: 49%;
+}
+
+textarea {
+    min-height: 6rem;
+    max-height: 10rem;
+}
+
+button {
+    margin-top: 1rem;
+}
+
+p {
+    padding-top: 2rem;
+    opacity: .5;
+}
