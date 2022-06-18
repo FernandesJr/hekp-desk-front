@@ -1,3 +1,4 @@
+import { ChamadoUpgradeComponent } from './components/chamado/chamado-upgrade/chamado-upgrade.component';
 import { ChamadoCreateComponent } from './components/chamado/chamado-create/chamado-create.component';
 import { TecnicoDeleteComponent } from './components/tecnico/tecnico-delete/tecnico-delete.component';
 import { TecnicoUpdateComponent } from './components/tecnico/tecnico-update/tecnico-update.component';
@@ -35,7 +36,8 @@ const routes: Routes = [
       {path: "clientes/delete/:id", component: ClienteDeleteComponent},
 
       {path: "chamados", component: ChamadoListComponent},
-      {path: "chamados/create", component: ChamadoCreateComponent}
+      {path: "chamados/create", component: ChamadoCreateComponent},
+      {path: "chamados/upgrade/:id", component: ChamadoUpgradeComponent}
     ]
   }
 ];
