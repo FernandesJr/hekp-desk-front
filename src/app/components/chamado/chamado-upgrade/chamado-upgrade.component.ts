@@ -1,4 +1,4 @@
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { ChamadoService } from './../../../services/chamado.service';
 import { Cliente } from './../../../models/cliente';
@@ -44,7 +44,8 @@ export class ChamadoUpgradeComponent implements OnInit {
     private tecnicoService: TecnicoService,
     private chamadoService: ChamadoService,
     private toastr: ToastrService,
-    private router: Router) { }
+    private router: Router,
+    private route: ActivatedRoute) { }
 
   ngOnInit(): void {
     this.clienteService.findAll().subscribe(resposta => {
@@ -53,11 +54,19 @@ export class ChamadoUpgradeComponent implements OnInit {
     this.tecnicoService.findAll().subscribe(resposta => {
       this.tecnicos = resposta;
     });
+
+    this.findById(this.route.snapshot.paramMap.get("id")); //Busca o id da URI
   }
 
-  create(): void {
-    this.chamadoService.create(this.chamado).subscribe(resposta => {
-      this.toastr.success("Chamado cadastrado com sucesso.", "Chamado");
+  findById(id: any): void {
+    this.chamadoService.findById(id).subscribe(resposta => {
+      this.chamado = resposta;
+    });
+  }
+
+  upgrade(): void {
+    this.chamadoService.upgrade(this.chamado).subscribe(resposta => {
+      this.toastr.success("Chamado atualizado com sucesso.", "Chamado");
       this.router.navigate(['chamados']);
     }, ex => {
       this.toastr.error(ex.error.error, "Erro");
@@ -69,6 +78,26 @@ export class ChamadoUpgradeComponent implements OnInit {
     return this.titulo.valid && this.status.valid && 
       this.prioridade.valid && this.tecnico.valid && 
       this.cliente.valid && this.observacoes.valid;
+  }
+
+  prioridadeDesc(cod: any): string {
+    if(cod == "0"){
+      return "BAIXA";
+    } else if(cod == "1"){
+      return "MÉDIA";
+    } else {
+      return "ALTA";
+    }
+  }
+
+  statusDesc(cod: any): string {
+    if(cod == "0"){
+      return "ABERTO";
+    } else if(cod == "1"){
+      return "EM ANDAMENTO";
+    } else {
+      return "FECHADO";
+    }
   }
 
 }
