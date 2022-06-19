@@ -1,0 +1,72 @@
+<div class="container mat-elevation-z8">
+  <h1 class="full-width">Informações do chamado</h1>
+  <img
+    class="full-width"
+    src="assets/img/chamado-create.svg"
+    alt="chamado-create"
+  />
+
+  <mat-form-field class="full-width" appearance="outline">
+    <input
+      readonly="true"
+      [(ngModel)]="chamado.titulo"
+      name="titulo"
+      matInput
+    />
+  </mat-form-field>
+
+  <div class="select">
+    <mat-form-field appearance="outline">
+      <mat-label
+        >Prioridade( {{ prioridadeDesc(chamado.prioridade) }} )</mat-label
+      >
+      <mat-select
+        [(ngModel)]="chamado.prioridade"
+        name="prioridade"
+      >
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field appearance="outline">
+      <mat-label>Status( {{ statusDesc(chamado.status) }} )</mat-label>
+      <mat-select
+        [(ngModel)]="chamado.status"
+        name="status"
+      >
+      </mat-select>
+    </mat-form-field>
+  </div>
+
+  <mat-form-field class="full-width" appearance="outline">
+    <mat-label>Tecnico( {{ chamado.nomeTecnico }} )</mat-label>
+    <mat-select
+      [(ngModel)]="chamado.tecnico"
+      name="tecnico"
+    >
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field class="full-width" appearance="outline">
+    <mat-label>Cliente( {{ chamado.nomeCliente }} )</mat-label>
+    <mat-select
+      [(ngModel)]="chamado.cliente"
+      name="cliente"
+    >
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field class="full-width" appearance="outline">
+    <mat-label>Observação</mat-label>
+    <textarea
+      readonly="true"
+      matInput
+      [(ngModel)]="chamado.observacoes"
+      name="observacoes"
+    ></textarea>
+  </mat-form-field>
+
+  <button routerLink="../../" class="full-width" mat-raised-button>
+    Voltar
+  </button>
+
+  <p class="full-width">By Gilberto Fernandes</p>
+</div>
