@@ -2,7 +2,7 @@ import { Observable } from 'rxjs';
 import { API_CONFIG } from '../config/api.config';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
-import { Tecnico } from '../models/tecnico';
+import { Tecnico } from 'src/app/models/tecnico';
 
 @Injectable({
   providedIn: 'root'

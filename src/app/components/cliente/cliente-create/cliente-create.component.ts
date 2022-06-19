@@ -1,9 +1,9 @@
 import { Router } from '@angular/router';
-import { Cliente } from '../../../models/cliente';
 import { ClienteService } from '../../../services/cliente.service';
 import { FormControl, Validators } from '@angular/forms'
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
+import { Cliente } from 'src/app/models/cliente';
 
 @Component({
   selector: 'app-cliente-create',
