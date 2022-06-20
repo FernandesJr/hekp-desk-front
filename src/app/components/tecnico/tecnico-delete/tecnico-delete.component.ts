@@ -2,7 +2,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { TecnicoService } from './../../../services/tecnico.service';
 import { Component, OnInit } from '@angular/core';
 import { ToastrService } from 'ngx-toastr';
-import { Tecnico } from 'src/app/models/tecnico';
+import { Tecnico } from 'src/app/models/Tecnico';
 
 @Component({
   selector: 'app-tecnico-delete',

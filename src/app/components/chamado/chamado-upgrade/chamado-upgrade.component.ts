@@ -6,8 +6,8 @@ import { ClienteService } from './../../../services/cliente.service';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, Validators } from '@angular/forms';
 import { Chamado } from 'src/app/models/chamado';
-import { Tecnico } from 'src/app/models/tecnico';
-import { Cliente } from 'src/app/models/cliente';
+import { Tecnico } from 'src/app/models/Tecnico';
+import { Cliente } from 'src/app/models/Cliente';
 
 @Component({
   selector: 'app-chamado-upgrade',

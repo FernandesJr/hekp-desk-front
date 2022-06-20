@@ -2,7 +2,7 @@ import { ClienteService } from '../../../services/cliente.service';
 import { Component, OnInit, ViewChild } from '@angular/core';
 import { MatPaginator } from '@angular/material/paginator';
 import { MatTableDataSource } from '@angular/material/table';
-import { Cliente } from 'src/app/models/cliente';
+import { Cliente } from 'src/app/models/Cliente';
 
 @Component({
   selector: 'app-cliente-list',
